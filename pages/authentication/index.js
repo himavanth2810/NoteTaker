@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 
-const apiUrl = "";
+const apiUrl = "https://notetaker-authentication.herokuapp.com";
 
 window.addEventListener("load", () => {
   body.classList.add("visible");
