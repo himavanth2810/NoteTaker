@@ -10,9 +10,28 @@ const apiUrl = "https://authentication-notetaker.herokuapp.com";
 
 const token = localStorage.getItem("jwt");
 
+let Noteheading = document.querySelector(".create-note-heading");
+let Notecontent = document.querySelector(".create-note-input");
+
+window.addEventListener("load",  () => {
+  fetch(`${apiUrl}/note/update/${noteId}`, {
+      method: "GET",
+      headers: {
+          authorization: token,
+      }
+
+  }).then((data) => {
+      return data.text()
+  }).then((result) => {
+      const array = JSON.parse(result)
+      Noteheading.value = array[0].heading;
+      Notecontent.value = array[0].content;
+  })
+})
+
 updateNoteButton.addEventListener("click", () => {
-  const content = document.querySelector(".create-note-input").value;
-  const heading = document.querySelector(".create-note-heading").value;
+  const content = Notecontent.value;
+  const heading = Noteheading.value;
 
   if (token) {
     fetch(`${apiUrl}/note/update/${noteId}`, {
