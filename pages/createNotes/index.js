@@ -1,6 +1,6 @@
 const createNoteButton = document.querySelector(".create-note-button");
 
-const apiUrl = "https://notetaker-authentication.herokuapp.com";
+const apiUrl = "https://authentication-notetaker.herokuapp.com";
 
 const token = localStorage.getItem("jwt");
 
