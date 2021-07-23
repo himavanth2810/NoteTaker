@@ -4,6 +4,7 @@ const noteId = urlParams.get("noteId");
 console.log(noteId);
 
 const updateNoteButton = document.querySelector(".create-note-button");
+const deleteNoteButton = document.querySelector(".delete-note-button");
 
 const apiUrl = "https://notetaker-authentication.herokuapp.com";
 
@@ -31,6 +32,28 @@ updateNoteButton.addEventListener("click", () => {
       .catch((err) => {
         alert("Error Creating Note!! Re-try....");
         console.log(err);
+      });
+  }
+});
+
+deleteNoteButton.addEventListener("click", () => {
+  if (token) {
+    fetch(`${apiUrl}/note/delete/${noteId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message) {
+          location.href = "/pages/dashboard/dashboard.html";
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error Deleting Note!! Re-try....");
       });
   }
 });
