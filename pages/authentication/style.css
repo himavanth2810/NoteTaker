@@ -120,3 +120,122 @@
   form > button:active {
     transform: scale(1);
   }
+
+@media only screen and (max-width:540px) {
+  body {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, #ff9ce3, #4ab3ff);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .visible {
+    opacity: 1;
+  }
+  
+  .circle1,
+  .circle2 {
+    z-index: -5;
+    position: absolute;
+  }
+  
+  .circle1 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  
+    background: linear-gradient(180deg, #97ff57 0%, #0d99ff 99.99%, #0094ff 100%);
+    filter: blur(10px);
+    transform: rotate(18deg);
+    left: -100px;
+    top: -120px;
+  }
+  .circle2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+    filter: blur(10px);
+    transform: rotate(18deg);
+    right: 0px;
+    bottom: 0px;
+  
+    background: linear-gradient(180deg, #ff57d0 0%, #0d99ff 99.99%, #0094ff 100%);
+    filter: blur(5px);
+    transform: rotate(18deg);
+  }
+  
+  .form-container {
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items:flex-start;
+  }
+  
+  .signin-form,
+  .signup-form {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px solid white;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-heading {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  form > * {
+    margin: 0 0;
+  }
+  form > *:first-child {
+    margin-top: 0;
+  }
+  
+  form > *:last-child {
+    margin-bottom: 10px;
+  }
+  
+  form > input {
+    border: none;
+    height: 10%;
+    width: 150px;
+    margin: 5px;
+    border-radius: 15px;
+    color: black;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  form > input:focus {
+    outline: none;
+  }
+  
+  form > button {
+    background: transparent;
+    padding: 8px;
+    border-radius: 15px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  
+  form > button:hover {
+    transform: scale(1.1);
+  }
+  
+  form > button:active {
+    transform: scale(1);
+  }
+
+}
